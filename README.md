@@ -36,7 +36,9 @@ you are interested in battle-tested, production-ready Terraform code, check out 
    backend](https://www.terraform.io/docs/backends/types/s3.html) to store your
    Terraform state, and S3 bucket names must be globally unique. The name currently in
    the file is already taken, so you'll have to specify your own. Alternatives, you can
-   set the environment variable `TG_BUCKET_PREFIX` to set a custom prefix.
+   set the environment variable `TG_BUCKET_PREFIX` to set a custom prefix with add 
+   `${get_env("TG_BUCKET_PREFIX", "")}` to the `config.bucket` variable.
+   - currently an account number is used instead.
 1. Configure your AWS credentials using one of the supported [authentication
    mechanisms](https://www.terraform.io/docs/providers/aws/#authentication).
 1. Fill in your AWS Account ID's in `prod/account.hcl` and `non-prod/account.hcl`.
